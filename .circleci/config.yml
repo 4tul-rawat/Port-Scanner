@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: "Semgrep full scan"
-          command: semgrep ci
+          command: semgrep ci --dry-run
   semgrep-diff-scan:
     parameters:
       default_branch:
