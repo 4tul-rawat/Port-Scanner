@@ -80,6 +80,16 @@ try:
 			print("Port {} is open".format(port))
 
 		s.close()
+try:
+	for port in range(1,65535):
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		socket.setdefaulttimeout(1)
+
+		result = s.connect_ex((target,port))
+		if result == 0:
+			print("Port {} is open".format(port))
+
+		s.close()
 
 except KeyboardInterrupt:
 	print("\n####Exiting Program####")
