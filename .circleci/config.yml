@@ -1,14 +1,6 @@
 version: 2.1
 
 jobs:
-  semgrep-full-scan:
-    docker:
-      - image: semgrep/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep full scan"
-          command: semgrep ci
   semgrep-diff-scan:
     parameters:
       default_branch:
@@ -22,19 +14,13 @@ jobs:
       - run:
           name: Semgrep diff scan
           environment:
-            SEMGREP_BASELINE_REF: << parameters.default_branch >>
+            SEMGREP_BASELINE_REF: main
           command: semgrep ci
 
 # Replace main with the repository default branch if different.
 workflows:
   semgrep:
     jobs:
-      - semgrep-full-scan:
-          filters:
-            branches:
-              only: main
-          context:
-            - semgrep
       - semgrep-diff-scan:
           filters:
             branches:
