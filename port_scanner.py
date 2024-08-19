@@ -33,6 +33,11 @@ print("Hello world")
 print("Port Scanning Target:" + target)
 print("*" * 50)
 print("*" * 10)
+print("*" * 50)
+print("Hello world")
+print("Port Scanning Target:" + target)
+print("*" * 50)
+print("*" * 10)
 
 try:
 	for port in range(1,65535):
