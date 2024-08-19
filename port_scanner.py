@@ -30,6 +30,8 @@ else:
 
 print("*" * 50)
 print("Hello world")
+
+print("Hello world")
 print("Port Scanning Target:" + target)
 print("*" * 50)
 
